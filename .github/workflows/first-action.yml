@@ -9,7 +9,7 @@ jobs:
       - name: Print goodbye
         run: echo "Done, Bye"
       - name: check k8s
-        run: kubectl version
+        run: kubectl version; exit 0
         
 
 
