@@ -1,9 +1,12 @@
 name: First Workflow
 
 
-on: workflow_dispatch
-    repository_dispatch:
-      types: [run-tests, deploy-to-prod]  # Optional filtering
+on: 
+  workflow_dispatch: {}
+
+  repository_dispatch:
+    types: [run-tests, deploy-to-prod]  # Optional filtering
+    
 jobs:
   first-job: 
     runs-on: self-hosted
