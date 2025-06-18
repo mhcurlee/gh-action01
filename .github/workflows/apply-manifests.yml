@@ -1,4 +1,4 @@
-name: First Workflow
+name: Apply Manifests
 
 
 on: 
@@ -8,14 +8,14 @@ on:
   
 
 jobs:
-  first-job: 
+  job1: 
     runs-on: self-hosted
     steps:
 
       - name: checkout repo
         uses: actions/checkout@v4
 
-      - name: Print greeting
+      - name: Apply Manifests
         run: kubectl apply -f manifests/
 
 
