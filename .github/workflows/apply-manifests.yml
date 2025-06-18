@@ -17,6 +17,14 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
 
+      - name: Scan yamls
+        id: kube-lint-scan
+        uses: stackrox/kube-linter-action@v1
+        with:
+          directory: manifests
+
+
+
       - name: Apply Manifests
         run: kubectl apply -f manifests/
 
