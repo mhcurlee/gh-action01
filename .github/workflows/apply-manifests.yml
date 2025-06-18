@@ -3,7 +3,9 @@ name: Apply Manifests
 
 on: 
   workflow_dispatch: {}
-  push: {}
+  push:
+    branches:
+      - master
 
   
 
