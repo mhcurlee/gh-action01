@@ -11,8 +11,12 @@ jobs:
   first-job: 
     runs-on: self-hosted
     steps:
+
+      - name: checkout repo
+        uses: actions/checkout@v4
+
       - name: Print greeting
-        run: kubectl get nodes
+        run: kubectl apply -f manifests/
 
 
         
