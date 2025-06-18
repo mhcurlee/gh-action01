@@ -3,9 +3,9 @@ name: First Workflow
 
 on: 
   workflow_dispatch: {}
+  push: {}
 
-  repository_dispatch:
-    types: [run-tests, deploy-to-prod]  # Optional filtering
+  
 
 jobs:
   first-job: 
