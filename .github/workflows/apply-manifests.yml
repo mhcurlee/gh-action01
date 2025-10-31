@@ -1,24 +1,23 @@
 name: Apply Manifests
 
 on: 
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      action:
+        type: choice
+        options: [run-all, skip-terraform]
+        default: run-all
   push:
     branches:
       - master
 
 jobs:
   job1: 
-    runs-on: self-hosted
+    if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'skip-terraform') }}
+    runs-on: ubuntu-latest
     steps:
       - name: checkout repo
-        uses: actions/checkout@v4
-      - name: Scan yamls
-        id: kube-lint-scan
-        uses: stackrox/kube-linter-action@v1
-        with:
-          directory: manifests
-      - name: Apply Manifests
-        run: kubectl apply -f manifests/
+        run: echo "hello world"
 
 
         
